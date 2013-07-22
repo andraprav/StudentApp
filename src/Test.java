@@ -11,7 +11,7 @@ public class Test {
 		studentInfo = line.split(" ");
 		return studentInfo;
 	}
-
+	//method without Database class
 	public static void test() throws NotAStudent, IncorrectName,
 			NumberFormatException, FileNotFoundException, IOException {
 		StudentFactory studentFactory = StudentFactory.getInstance();
@@ -79,11 +79,33 @@ public class Test {
 		in.close();
 
 	}
-
+	//testing functionality with Database class
 	public static void test2() throws NotAStudent, IncorrectName, NumberFormatException, FileNotFoundException, IOException {
 		Database database = new Database();
-		System.out.println(database.searchByFirstNameLastName("Pravai", "Andra"));
-	
+		//searching
+		System.out.println("-----------Searching Pravai Andra-------------\n");
+		System.out.println(database.searchByFirstNameLastName("fsdf", "Andra"));
+		//adding
+		System.out.println("---------Adding gigica------------\n");
+		database.addStudent("Graduate", "Gigica", "Petru", 111111, Integer.parseInt("1200"));
+		System.out.println(database);
+		System.out.println("---------Adding gigica again!------------\n");
+		database.addStudent("Graduate", "Gigica", "Petru", 111111, Integer.parseInt("1200"));
+		System.out.println(database);
+		//remove
+		System.out.println("----------Removing Gigica------------\n");
+		database.remove("Gigica","Petru");
+		System.out.println(database);
+		System.out.println("----------Removing Gigica again!------------\n");
+		database.remove("Gigica","Petru");
+		System.out.println(database);
+		//editing
+		System.out.println("------------Editing Pravai Andra-----------");
+		database.editFirstName("Pravai","Andra","NotPravai");
+		System.out.println(database);
+		System.out.println("------------Editing a non existing name-----------");
+		database.editFirstName("lulu","Andra","NotPravai");
+		System.out.println(database);
 	}
 	public static void main(String[] args) {
 		try {
