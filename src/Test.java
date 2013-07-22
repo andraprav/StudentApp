@@ -101,10 +101,10 @@ public class Test {
 		System.out.println(database);
 		//editing
 		System.out.println("------------Editing Pravai Andra-----------");
-		database.editFirstName("Pravai","Andra","NotPravai");
+		database.editInfo("Pravai","Andra","firstName","NotPravai");
 		System.out.println(database);
 		System.out.println("------------Editing a non existing name-----------");
-		database.editFirstName("lulu","Andra","NotPravai");
+		database.editInfo("Pravai","Andra","firstName","NotPravai");
 		System.out.println(database);
 	}
 	public static void main(String[] args) {
