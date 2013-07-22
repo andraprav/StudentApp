@@ -80,9 +80,14 @@ public class Test {
 
 	}
 
+	public static void test2() throws NotAStudent, IncorrectName, NumberFormatException, FileNotFoundException, IOException {
+		Database database = new Database();
+		System.out.println(database.searchByFirstNameLastName("Pravai", "Andra"));
+	
+	}
 	public static void main(String[] args) {
 		try {
-			test();
+			test2();
 		} catch (NotAStudent e) {
 			System.out.println(e.getMessage());
 			return;

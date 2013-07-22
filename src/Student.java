@@ -8,6 +8,10 @@ public abstract class Student {
 
 	public abstract String getType();
 
+	public boolean isAlpha(String name) {
+		return name.matches("[a-zA-Z]+");
+	}
+
 	public String getFirstName() {
 		return firstName;
 	}
@@ -24,26 +28,31 @@ public abstract class Student {
 		return salariu;
 	}
 
-	public void setFirstName(String firstName) {
+	public void setFirstName(String firstName) throws IncorrectName {
+		if (!isAlpha(firstName))
+			throw new IncorrectName("Incorrect name, try letters");
 		this.firstName = firstName;
 	}
 
-	public void setLastName(String lastName) {
+	public void setLastName(String lastName) throws IncorrectName {
+		if (!isAlpha(lastName))
+			throw new IncorrectName("Incorrect name, try letters");
 		this.lastName = lastName;
 	}
 
-	@Override
-	public String toString() {
-		return  firstName + ", " + lastName + ", " + serieBuletin
-				+ ", " + salariu;
-	}
-
-	public void setSerieBuletin(int serieBuletin) {
+	public void setSerieBuletin(int serieBuletin) throws NumberFormatException{
+		if ((serieBuletin/1000000 != 0) && (serieBuletin%1000000 != 0) ) throw new NumberFormatException();
 		this.serieBuletin = serieBuletin;
 	}
 
 	public void setSalariu(int salariu) {
 		this.salariu = salariu;
+	}
+
+	@Override
+	public String toString() {
+		return firstName + ", " + lastName + ", " + serieBuletin + ", "
+				+ salariu;
 	}
 
 	@Override
