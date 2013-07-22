@@ -35,10 +35,24 @@ public class Test {
 		} catch (IOException e) {
 			System.out.println("IOException");
 		}
-		for(int studentCounter = 0 ; studentCounter<10; studentCounter+=2){
-			System.out.println(":" +
-			students.get(studentCounter).getHoursPerWeek());
+		// searching for a student...
+		Student s = studentFactory.createStudent("Graduate", "Pravai", "Andra",
+				123456, 1200);
+		for (Student st : students) {
+			if (st.equals(s)) {
+				System.out.println("Da!!");
+			}
 		}
+		// editing an existing student...
+		for (Student st : students) {
+			if (st.equals(s)) {
+				st.setFirstName("notPravai");
+			}
+		}
+		System.out.println(students.get(1));
+		// remove a student...
+		
+		// adding a student
 	}
 
 }
