@@ -21,7 +21,7 @@ public class Test {
 		ArrayList<Student> students = new ArrayList<Student>();
 		boolean found = false;
 		Student myExampleStudent;
-		//opening the file
+		// opening the file
 		in = new BufferedReader(new FileReader("Database"));
 
 		// reading from file...
@@ -36,7 +36,7 @@ public class Test {
 		}
 
 		// searching for a student...
-		
+
 		myExampleStudent = studentFactory.createStudent("Graduate", "Pravai",
 				"Andra", 123456, Integer.parseInt("1200"));
 
@@ -64,14 +64,18 @@ public class Test {
 		myExampleStudent.setFirstName("notPravai");
 		for (Student st : students) {
 			if (st.equals(myExampleStudent)) {
+				System.out.println("Removed student number "+ students.indexOf(st)+ " : "+ st);
 				students.remove(st);
 				break;
 			}
 		}
-		System.out.println(students.get(1));
+		
+
 		// adding a student
 		students.add(1, myExampleStudent);
-		System.out.println(students.get(1));
+		System.out.println("Added 1 student on index "+ 1 + " : "+ myExampleStudent);
+
+		in.close();
 
 	}
 
@@ -85,15 +89,17 @@ public class Test {
 			System.out.println(e.getMessage());
 			return;
 		} catch (NumberFormatException e) {
-			String[] s = e.getMessage().split(" ");
-			String output = s[s.length-1];
-			System.out.println("This is not a number " + output);
+			if (e.getMessage() != null) {
+				String[] s = e.getMessage().split(" ");
+				String output = s[s.length - 1];
+				System.out.println("This is not a number " + output);
+			}else System.out.println("It doesn't have 6 digits");
 			return;
 		} catch (FileNotFoundException e) {
 			System.out.println("Verify that you have a file Database");
 
 		} catch (IOException e) {
-			
+			System.out.println("IOException...");
 
 		}
 	}
