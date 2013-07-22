@@ -34,7 +34,7 @@ public abstract class Student {
 
 	@Override
 	public String toString() {
-		return "Student: " + firstName + ", " + lastName + ", " + serieBuletin
+		return  firstName + ", " + lastName + ", " + serieBuletin
 				+ ", " + salariu;
 	}
 
