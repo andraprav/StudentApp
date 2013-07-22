@@ -27,18 +27,41 @@ public class Test {
 		try {
 			while ((line = in.readLine()) != null) {
 				studentInfo = breakLine(line);
+				try{
 				students.add(studentFactory.createStudent(studentInfo[0],
 						studentInfo[1], studentInfo[2],
 						Integer.parseInt(studentInfo[3]),
 						Integer.parseInt(studentInfo[4])));
+				} catch (NotAStudent e){
+					System.out.println(e.getMessage());
+					return;
+				} catch (IncorrectName e){
+					System.out.println(e.getMessage());
+					return;
+				} catch (NumberFormatException e){
+					System.out.println("You entered a string not a number");
+					return;
+				}
 
 			}
 		} catch (IOException e) {
 			System.out.println("IOException");
 		}
 		// searching for a student...
-		Student myExampleStudent = studentFactory.createStudent("Graduate", "Pravai", "Andra",
-				123456, 1200);
+		Student myExampleStudent;
+		try{
+		myExampleStudent = studentFactory.createStudent("Graduate", "Pravai", "Andra",
+				123456, Integer.parseInt("12345bca"));
+		} catch (NotAStudent e){
+			System.out.println(e.getMessage());
+			return;
+		} catch (IncorrectName e){
+			System.out.println(e.getMessage());
+			return;
+		} catch (NumberFormatException e){
+			System.out.println("You entered a string not a number");
+			return;
+		}
 		for (Student st : students) {
 			if (st.equals(myExampleStudent)) {
 				System.out.println("Da!!");
@@ -63,6 +86,7 @@ public class Test {
 		// adding a student
 		students.add(1, myExampleStudent);
 		System.out.println(students.get(1));
+		
 	}
 
 }

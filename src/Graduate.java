@@ -5,7 +5,7 @@ public class Graduate extends Student {
 		return 35;
 	}
 
-	public Graduate(String firstName, String lastName, int serieBuletin, int salariu) {
+	public Graduate(String firstName, String lastName, int serieBuletin, int salariu) throws IncorrectName{
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.serieBuletin = serieBuletin;

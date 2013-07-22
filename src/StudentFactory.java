@@ -13,7 +13,7 @@ public class StudentFactory {
 	}
 
 	public Student createStudent(String studentType, String firstName,
-			String lastName, int serieBuletin, int salariu) {
+			String lastName, int serieBuletin, int salariu)  throws NotAStudent,IncorrectName {
 		switch (studentType) {
 		case "Undergraduate":
 			return new Undergraduate(firstName, lastName, serieBuletin, salariu);
@@ -22,7 +22,7 @@ public class StudentFactory {
 		case "PartTime":
 			return new PartTime(firstName, lastName, serieBuletin, salariu);
 		}
-		throw new IllegalArgumentException("The student type " + studentType
+		throw new NotAStudent("The student type " + studentType
 				+ " is not recognized.");
 	}
 
