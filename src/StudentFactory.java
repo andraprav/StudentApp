@@ -1,3 +1,8 @@
+/**
+ * 
+ * @author apravai
+ * Factory to generate students of the three types
+ */
 public class StudentFactory {
 	private static final StudentFactory factory = new StudentFactory();
 

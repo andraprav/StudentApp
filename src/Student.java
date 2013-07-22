@@ -1,3 +1,11 @@
+/**
+ * 
+ * @author apravai
+ * abstract class extended by Undergraduate, Graduate and PartTime
+ * has getters and setters for all members
+ * method isAlpha that verifies if a string contains characters
+ * toString, equals and hashcode overridden
+ */
 public abstract class Student {
 	String firstName = "Prenume";
 	String lastName = "Nume";
