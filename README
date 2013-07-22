@@ -1,0 +1,14 @@
+Aplicatia implementeaza un scurt sistem pentru cautarea, editarea, adaugarea sau stergerea unor studenti dintr-o baza de date.
+1) cautare :a) search(s) - cauta studentul s
+			b) searchByCardIdentity(serie) - cauta un student dupa seria sa de buletin
+			c) searchByFirstNameLastName(nume,prenume) -  cauta dupa numele si prenumele acestuia si reda celelalte informatii
+2) adaugare:a)add(s) - adauga studentul s la finalul bazei de date
+			b)addAtIndex(index,s) - adauga studentul intr-o anumita pozitie index
+			c)addStudent(campuri...) - creeaza si insereaza studentul in baza de date
+3) stergere:a) remove(s) : sterge studentul s din baza de date
+			b) remove(nume,prenume): cauta studneul cu numele respectiv si apoi il sterge
+4) editare: editInfo(nume,prenume,membru,noulMembru) - cauta sutdentul cu numele respectiv si apoi editeaza campul membru
+														cu informatia din noulMembru
+
+
+
